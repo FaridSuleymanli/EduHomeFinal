@@ -50,7 +50,7 @@ namespace EduHomeFinal.Areas.Admin.Controllers
         {
             if (id == null)
                 return NotFound();
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View();
             }
@@ -91,7 +91,7 @@ namespace EduHomeFinal.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Blog blog)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View();
             }

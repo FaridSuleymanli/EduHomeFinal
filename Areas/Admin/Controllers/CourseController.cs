@@ -94,5 +94,35 @@ namespace EduHomeFinal.Areas.Admin.Controllers
         {
             return View(_eduDb.Courses.FirstOrDefault());
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Courses courses)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (ModelState["PhotoCourse"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+            {
+                return View();
+            }
+            bool isExist = _eduDb.Courses.Any(c => c.Name.ToLower() == courses.Name.ToLower());
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "The name is already exist");
+            }
+            if (!courses.PhotoCourse.IsImage())
+            {
+                ModelState.AddModelError("PhotoCourse", "Use an image file");
+                return View();
+            }
+            if (courses.PhotoCourse.CheckFileSize(800))
+            {
+                ModelState.AddModelError("PhotoCourse", "Size is bigger than 800kb");
+                return View();
+            }
+
+            return View();
+        }
     }
 }

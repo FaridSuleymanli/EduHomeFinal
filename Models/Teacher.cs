@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,5 +29,7 @@ namespace EduHomeFinal.Models
         public string Twitter { get; set; }
         public string Instagram { get; set; }
         public Skills Skills { get; set; }
+        [NotMapped]
+        public IFormFile PhotoTeacher { get; set; }
     }
 }
