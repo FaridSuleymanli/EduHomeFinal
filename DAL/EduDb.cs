@@ -1,4 +1,5 @@
 ﻿using EduHomeFinal.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EduHomeFinal.DAL
 {
-    public class EduDb : DbContext
+    public class EduDb : IdentityDbContext<AppUser>
     {
         public EduDb(DbContextOptions<EduDb> options) : base(options) { }
         public DbSet<Slider> Sliders { get; set; }
@@ -22,5 +23,6 @@ namespace EduHomeFinal.DAL
         public DbSet<Event> Events { get; set; }
         public DbSet<Speakers> Speakers { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Bio> Bios { get; set; }
     }
 }

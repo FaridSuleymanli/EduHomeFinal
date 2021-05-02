@@ -4,14 +4,16 @@ using EduHomeFinal.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHomeFinal.Migrations
 {
     [DbContext(typeof(EduDb))]
-    partial class EduDbModelSnapshot : ModelSnapshot
+    [Migration("20210502121541_AddedBoolToAppuser")]
+    partial class AddedBoolToAppuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

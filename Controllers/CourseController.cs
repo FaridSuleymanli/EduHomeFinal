@@ -18,9 +18,13 @@ namespace EduHomeFinal.Controllers
             _eduDb = eduDb;
         }
         public IActionResult Index()
-        {
-            
+        { 
             return View();
+        }
+        public IActionResult Search(string key)
+        {
+            IEnumerable<Courses> courses = _eduDb.Courses.Where(c => c.Name.ToLower().Contains(key.ToLower())).ToList();
+            return PartialView("~/Views/Shared/_partialSearchCourse.cshtml", courses);
         }
         public async Task<IActionResult> Detail(int? id)
         {

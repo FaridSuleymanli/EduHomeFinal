@@ -333,6 +333,18 @@
                             <span class="menu-title">Teachers</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="Event" asp-action="Index">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Events</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Users</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="main-panel">
@@ -375,7 +387,7 @@
     <script src="~/Admin/js/dashboard.js"></script>
     <script src="~/Admin/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
-    @RenderSection("Scripts", false)
+    @RenderSection("Script", false)
 
 
 </body>

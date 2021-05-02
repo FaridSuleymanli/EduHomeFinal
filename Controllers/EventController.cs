@@ -20,6 +20,11 @@ namespace EduHomeFinal.Controllers
         {
             return View(_eduDb.Events.ToList());
         }
+        public IActionResult Search(string key)
+        {
+            IEnumerable<Event> events = _eduDb.Events.Where(e => e.Name.Contains(key.ToLower())).ToList();
+            return PartialView("~/Views/Shared/_partialSearchEvent.cshtml", events);
+        }
         public async Task<IActionResult> Detail(int? id)
         {
             Event events = await _eduDb.Events.Include(e => e.Speakers).FirstOrDefaultAsync(e => e.Id == id);

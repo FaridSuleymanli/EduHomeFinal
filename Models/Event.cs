@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +25,8 @@ namespace EduHomeFinal.Models
         public string EventPlace { get; set; }
         public string EventStart { get; set; }
         public string EventFinish { get; set; }
+        [NotMapped]
+        public IFormFile Photo { get; set; }
         public ICollection<Speakers> Speakers { get; set; }
     }
 }

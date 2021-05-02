@@ -23,7 +23,7 @@ namespace EduHomeFinal.Controllers
         public IActionResult Search(string search)
         {
             IEnumerable<Teacher> teachers = _eduDb.Teachers.Where(t => t.Name.ToLower().Contains(search.ToLower())).ToList();
-            return PartialView("_partialSearch", teachers);
+            return PartialView("_partialSearchTeacher", teachers);
         }
         public async Task<IActionResult> Detail(int? id)
         {

@@ -4,14 +4,16 @@ using EduHomeFinal.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EduHomeFinal.Migrations
 {
     [DbContext(typeof(EduDb))]
-    partial class EduDbModelSnapshot : ModelSnapshot
+    [Migration("20210502114048_AddedBioTable")]
+    partial class AddedBioTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,9 +44,6 @@ namespace EduHomeFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
-
-                    b.Property<bool>("IsActivated")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -105,7 +104,7 @@ namespace EduHomeFinal.Migrations
                     b.Property<string>("Contact")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Contactimage")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EudoHomeAdress")
@@ -128,9 +127,6 @@ namespace EduHomeFinal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Twitter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WebAdress")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
